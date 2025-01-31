@@ -1,0 +1,222 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-image: url(https://wallpapercave.com/wp/wp6400060.jpg);
+  background-size: cover;
+  background-position: center;
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+
+/* Main Container */
+.container {
+  width: 90%;
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  text-align: center;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Form Styling */
+form {
+  margin-bottom: 20px;
+  padding: 20px;
+  background: #f8f9fa;
+  border-radius: 8px;
+}
+
+label {
+  display: block;
+  margin: 10px 0 5px;
+  font-weight: bold;
+  font-size: 14px;
+  color: #333;
+}
+
+textarea, input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #21c6c6;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background 0.3s ease-in-out;
+}
+
+button:hover {
+  background-color: #49e1e1;
+}
+button.hide-flashcards {
+  padding: 5px 10px;
+  font-size: 14px;
+}
+
+/* Flashcard Section */
+.flashcards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+/* Flashcard Wrapper */
+.card-wrapper {
+  display: inline-block;
+  margin: 15px;
+  width: 220px;
+  height: 320px;
+  position: relative;
+  perspective: 1000px;
+}
+
+/* Flashcard */
+.card {
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+  transform-style: preserve-3d;
+}
+
+/* Flip animation on hover */
+.card-wrapper:hover .card {
+  transform: rotateY(180deg);
+}
+
+/* Front & Back Styling */
+.card-front, .card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  text-align: center;
+  backface-visibility: hidden;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-front {
+  background: linear-gradient(to right, #ff758c, #ff7eb3);
+  color: white;
+}
+
+.card-back {
+  background: linear-gradient(to right, #6a7cd7, #57cfe7);
+  color: white;
+  transform: rotateY(180deg);
+}
+
+/* Question & Answer Styling */
+.card-front p, .card-back p {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+/* Flashcard Buttons */
+.card-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.card-buttons button {
+  background-color: #e17cc3;
+  padding: 6px 12px;
+  font-size: 14px;
+  border-radius: 4px;
+  transition: background 0.3s ease-in-out;
+}
+
+.card-buttons button:hover {
+  background-color: #e342b2;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .card-wrapper {
+    width: 180px;
+    height: 280px;
+  }
+
+  .card-front p, .card-back p {
+    font-size: 16px;
+  }
+}
+
+/* Card front styling */
+.card-front {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+/* Card back styling */
+.card-back {
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transform: rotateY(180deg);
+  padding: 20px;
+}
+
+/* Card flip animation */
+.card-inner:hover .card-front {
+  transform: rotateY(180deg);
+}
+
+.card-inner:hover .card-back {
+  transform: rotateY(0deg);
+}
+
+/* New edit and delete buttons styling */
+.card-options {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.card-options button {
+  background-color: transparent;
+  border: none;
+  color: #333;
+  font-size: 14px;
+  padding: 5px;
+  cursor: pointer;
+  transition: color 0.3s ease-in-out;
+}
+
+.card-options button:hover {
+  color: #ff338b;
+}
