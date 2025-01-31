@@ -13,7 +13,7 @@ const FlashcardCustomizer = () => {
   useEffect(() => {
     const fetchFlashcards = async () => {
       try {
-        const response = await axios.get('http://localhost:5005/flashcards');
+        const response = await axios.get('https://intern-end-szcr.onrender.com/flashcards');
         setFlashcards(response.data);
       } catch (error) {
         console.error('Error fetching flashcards:', error);
@@ -31,7 +31,7 @@ const FlashcardCustomizer = () => {
     const newCard = { question, answer, level };
 
     try {
-      const response = await axios.post('http://localhost:5005/flashcards', newCard);
+      const response = await axios.post('https://intern-end-szcr.onrender.com/flashcards', newCard);
       setFlashcards((prevFlashcards) => [...prevFlashcards, response.data.flashcard]);
       setQuestion('');
       setAnswer('');
@@ -56,7 +56,7 @@ const FlashcardCustomizer = () => {
 
       try {
         const response = await axios.put(
-          `http://localhost:5005/flashcards/${flashcards[index]._id}`,
+          `https://intern-end-szcr.onrender.com/flashcards/${flashcards[index]._id}`,
           updatedFlashcard
         );
         setFlashcards((prevFlashcards) =>
@@ -73,7 +73,7 @@ const FlashcardCustomizer = () => {
 
   const handleDelete = async (index) => {
     try {
-      await axios.delete(`http://localhost:5005/flashcards/${flashcards[index]._id}`);
+      await axios.delete(`https://intern-end-szcr.onrender.com/flashcards/${flashcards[index]._id}`);
       setFlashcards(flashcards.filter((_, i) => i !== index));
     } catch (error) {
       console.error('Error deleting flashcard:', error);

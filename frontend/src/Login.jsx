@@ -11,7 +11,7 @@ const Login = () => {
 const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("http://localhost:5005/login", { email, password });
+      const res = await axios.post("https://intern-end-szcr.onrender.com/login", { email, password });
       localStorage.setItem("token", res.data.token);
       navigate("/flashcards");
     } catch (err) {

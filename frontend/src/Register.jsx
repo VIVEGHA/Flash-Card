@@ -10,7 +10,7 @@ const Register = () => {
     const handleRegister = async (e) => {
         e.preventDefault();
         try {
-            await axios.post("http://localhost:5000/register", { username, password });
+            await axios.post("https://intern-end-szcr.onrender.com/register", { username, password });
             alert("Registration successful! Please log in.");
             navigate("/");
         } catch (error) {
